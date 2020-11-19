@@ -1,27 +1,30 @@
 package com.example.perfectmovie
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.perfectmovie.Model.ViewModel
+import kotlinx.android.synthetic.main.fragment_top.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+const val  URI : String = "https://api.themoviedb.org/3/movie/"
 
 class Top : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sendNetvorkReauest()
+
+
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +35,7 @@ class Top : Fragment() {
 
     fun sendNetvorkReauest()
     {
-        var const = Const()
-        val builder = Retrofit.Builder().baseUrl(const.URI).addConverterFactory(GsonConverterFactory.create())
+        val builder = Retrofit.Builder().baseUrl(URI).addConverterFactory(GsonConverterFactory.create())
         val retrofit= builder.build()
         val interfase = retrofit.create<Interface_API>(Interface_API::class.java)
 
@@ -46,10 +48,23 @@ class Top : Fragment() {
             }
 
             override fun onResponse(call: Call<ViewModel>, response: Response<ViewModel>) {
+                var array = response.body()!!.result
+                activity?.runOnUiThread () {
 
-                Log.i("Test",  response.body()!!.result!!.get(0).title!!)
+                    val recycler = activity?.findViewById<RecyclerView>(R.id.imageRecyclerView)
+                    recycler?.layoutManager = LinearLayoutManager(activity)
+                    recycler?.setHasFixedSize(true)
+                    var anim  = AnimationUtils.loadAnimation(activity?.applicationContext,R.anim.myalpha)
+                    val adapter: ItemAdapter = ItemAdapter(activity!!.applicationContext, array)
+                    {
+
+                    }
+                    recycler?.adapter = adapter
+                }
             }
 
         })
+
+
     }
 }
