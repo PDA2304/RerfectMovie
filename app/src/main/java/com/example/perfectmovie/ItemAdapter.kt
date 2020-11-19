@@ -15,8 +15,7 @@ class ItemAdapter(
 ) : RecyclerView.Adapter<ItemAdapter.ImageViewHolder>() {
 
     class ImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val rating = view.findViewById<TextView>()
-
+        val rating = view.findViewById<TextView>(R.id.vote_average)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder =
@@ -27,7 +26,6 @@ class ItemAdapter(
     override fun getItemCount(): Int = movie.size
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        TODO("Not yet implemented")
     }
 
 }
