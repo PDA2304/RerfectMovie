@@ -7,14 +7,14 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class ViewModel():Parcelable
+class TopModel():Parcelable
 {
     @SerializedName("results")
     @Expose
     var result : ArrayList<Json_results>? = null
 }
-
-class  Json_results{
+@Parcelize
+class  Json_results():Parcelable{
     @SerializedName("vote_average")
     @Expose
     var vote_average : String? = null
@@ -34,4 +34,14 @@ class  Json_results{
     @SerializedName("overview")
     @Expose
     var overview : String? = null
+
 }
+
+@Parcelize
+class ExpectedModel():Parcelable
+{
+    @SerializedName("results")
+    @Expose
+    var result : ArrayList<Json_results>? = null
+}
+

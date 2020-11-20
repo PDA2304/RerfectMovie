@@ -11,12 +11,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/poster"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/image_poster"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_top" />
+            android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+            >
+
+            <ImageView
+                android:id="@+id/poster"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:src="@drawable/ic_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="3dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_top_item" />
+
+                <TextView
+                    android:id="@+id/vote_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/vote_average"
+                    android:textColor="@color/colorRed"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -24,37 +60,19 @@
             android:layout_centerInParent="true"/>
 
         <TextView
-
             android:id="@id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/poster"
-            android:gravity="center_horizontal"
-            android:text="Название фильма"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+            android:layout_below="@id/image_poster"
+            style="@style/Title" />
 
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_centerHorizontal="true"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_top" />
-
-            <TextView
-                android:id="@+id/vote_average"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="8.9/10" />
-        </LinearLayout>
-
+            android:visibility="invisible"
+            android:text="Дата выхода: 2020-08-27"/>
     </RelativeLayout>
-
-
 </androidx.cardview.widget.CardView>

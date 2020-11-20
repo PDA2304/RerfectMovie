@@ -45,11 +45,12 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "com.google.android.material:material:nav_version"
-
-
+//--
     compile 'com.squareup.retrofit2:retrofit:2.5.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.google.code.gson:gson:2.6.1'
-
+//---
     implementation 'com.squareup.picasso:picasso:2.5.2'
+//--
+    implementation 'com.github.mohammadatif:Animatoo:master'
 }
