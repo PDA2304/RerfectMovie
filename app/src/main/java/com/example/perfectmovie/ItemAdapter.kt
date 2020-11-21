@@ -21,12 +21,12 @@ import kotlin.collections.ArrayList
 
 const val URI_IMAGE: String = "https://image.tmdb.org/t/p/w500/"
 
-class ItemAdapter_Top(
+class ItemAdapter(
     private val context: Context,
     private val movie: ArrayList<Json_results>?,
     private val boolean: Boolean,
     private val listener: (Json_results) -> Unit
-) : RecyclerView.Adapter<ItemAdapter_Top.ImageViewHolder>() {
+) : RecyclerView.Adapter<ItemAdapter.ImageViewHolder>() {
 
     class ImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val rating = view.findViewById<TextView>(R.id.vote_average)

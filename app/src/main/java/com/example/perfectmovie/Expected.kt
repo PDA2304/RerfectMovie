@@ -48,7 +48,7 @@ class Expected : Fragment() {
                     val recycler = activity?.findViewById<RecyclerView>(R.id.imageRecyclerView)
                     recycler?.layoutManager = LinearLayoutManager(activity)
                     recycler?.setHasFixedSize(true)
-                    val adapter = ItemAdapter_Top(activity!!.applicationContext,array,true)
+                    val adapter = ItemAdapter(activity!!.applicationContext,array,true)
                     {
                         var intent: Intent = Intent(activity!!.applicationContext, ItemMovie::class.java)
                         intent.putExtra("OBJECK", it)

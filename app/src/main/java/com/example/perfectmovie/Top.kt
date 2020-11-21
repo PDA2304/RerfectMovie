@@ -53,7 +53,7 @@ class Top : Fragment() {
                     val recycler = activity?.findViewById<RecyclerView>(R.id.imageRecyclerView)
                     recycler?.layoutManager = LinearLayoutManager(activity)
                     recycler?.setHasFixedSize(true)
-                    val adapter = ItemAdapter_Top(activity!!.applicationContext,array,false)
+                    val adapter = ItemAdapter(activity!!.applicationContext,array,false)
                     {
                         var intent:Intent = Intent(activity!!.applicationContext, ItemMovie::class.java)
                         intent.putExtra("OBJECK", it)
