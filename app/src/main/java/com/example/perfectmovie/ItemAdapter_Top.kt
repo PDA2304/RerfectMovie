@@ -40,7 +40,7 @@ class ItemAdapter_Top(
             boolean: Boolean,
             listener: (Json_results) -> Unit
         ) {
-            rating.text = date.vote_average + "/10"
+            rating.text = date.vote_average
             title.text = date.title
             if (boolean) {
                 release_date.text = "Дата выхода фильма: ${date.release_date}"

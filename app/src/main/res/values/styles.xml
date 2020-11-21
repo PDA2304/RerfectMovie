@@ -19,7 +19,7 @@
         <item name="android:text">Дата выхода фильма</item>
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
         <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:layout_marginTop">10dp</item>
     </style>
 

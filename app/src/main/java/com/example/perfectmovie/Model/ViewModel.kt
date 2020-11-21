@@ -7,41 +7,42 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class TopModel():Parcelable
-{
+class TopModel() : Parcelable {
     @SerializedName("results")
     @Expose
-    var result : ArrayList<Json_results>? = null
+    var result: ArrayList<Json_results>? = null
 }
+
 @Parcelize
-class  Json_results():Parcelable{
+data class Json_results(
     @SerializedName("vote_average")
     @Expose
-    var vote_average : String? = null
+    val vote_average: String,
 
     @SerializedName("title")
     @Expose
-    var title : String? = null
+    val title: String,
 
     @SerializedName("release_date")
     @Expose
-    var release_date : String? = null
+    val release_date: String,
 
     @SerializedName("poster_path")
     @Expose
-    var poster_path : String? = null
+    val poster_path: String,
 
     @SerializedName("overview")
     @Expose
-    var overview : String? = null
+    val overview: String
+) : Parcelable {
+
 
 }
 
 @Parcelize
-class ExpectedModel():Parcelable
-{
+class ExpectedModel() : Parcelable {
     @SerializedName("results")
     @Expose
-    var result : ArrayList<Json_results>? = null
+    var result: ArrayList<Json_results>? = null
 }
 

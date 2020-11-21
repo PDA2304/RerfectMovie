@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
+import com.example.perfectmovie.Model.ExpectedModel
 import com.example.perfectmovie.Model.Json_results
 import com.example.perfectmovie.Model.TopModel
 import retrofit2.Call
@@ -31,6 +32,7 @@ class Top : Fragment() {
         return inflater.inflate(R.layout.fragment_top, container, false)
     }
 
+
     fun sendNetvorkReauest()
     {
         val builder = Retrofit.Builder().baseUrl(URI).addConverterFactory(GsonConverterFactory.create())
@@ -51,7 +53,7 @@ class Top : Fragment() {
                     val recycler = activity?.findViewById<RecyclerView>(R.id.imageRecyclerView)
                     recycler?.layoutManager = LinearLayoutManager(activity)
                     recycler?.setHasFixedSize(true)
-                    val adapter: ItemAdapter_Top = ItemAdapter_Top(activity!!.applicationContext, array,false)
+                    val adapter = ItemAdapter_Top(activity!!.applicationContext,array,false)
                     {
                         var intent:Intent = Intent(activity!!.applicationContext, ItemMovie::class.java)
                         intent.putExtra("OBJECK", it)
@@ -61,9 +63,8 @@ class Top : Fragment() {
                     recycler?.adapter = adapter
                 }
             }
-
         })
 
-
     }
+
 }
